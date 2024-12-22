@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "8988616a-c970-4ada-8c07-f2223d5919fb",
+		"name": "LendSqr (Mayowa Assignment)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23434733",
+		"_collection_link": "https://orange-desert-343091.postman.co/workspace/LendSqr-(Mayowa's-Assignment)~257616e2-79d7-4ba3-906b-f0ee82f793e6/collection/23434733-8988616a-c970-4ada-8c07-f2223d5919fb?action=share&source=collection_link&creator=23434733"
+	},
+	"item": [
+		{
+			"name": "List Single User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"Status Code is 200\"] = responseCode.code == 200;\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests [\"Name Update\"] = response.name == \"morpheus\";\r",
+							"tests [\"Job Details Update\"] = response.job == \"zion resident\";\r",
+							"tests [\"Status Code is 200\"] = responseCode.code == 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (Morpheus - Leader)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests [\"Correct Response Format (Name)\" ] = response.name == \"morpheus\";\r",
+							"tests [\"Correct Response Format (Job)\"] = response.job == \"leader\";\r",
+							"tests[\"Status Code is 201\"]= responseCode.code== 201;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"leader\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(chuka - SocialMediaManager)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);\r",
+							"tests [\"Correct Response Format (Name)\" ] = response.name == \"chuka\";\r",
+							"tests [\"Correct Response Format (Job)\"] = response.job == \"Social Media Manager\";\r",
+							"tests[\"Status Code is 201\"]= responseCode.code== 201;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"chuka\",\r\n    \"job\": \"Social Media Manager\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://reqres.in/"
+		}
+	]
+}
